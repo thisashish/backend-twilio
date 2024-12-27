@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const timeout = require('connect-timeout');
 const cors = require('cors');
 const twilio = require('twilio');
-const MyRequestClient = require('./utils/MyRequestClient');
 
 // Routes
 const csvRoutes = require('./routes/csvRoutes');
@@ -43,16 +42,16 @@ app.use((req, res, next) => {
 });
 
 // Twilio Client Setup
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
 
-const client = twilio(accountSid, authToken, {
-  httpClient: new MyRequestClient(60000, {
-    protocol: 'https',
-    host: '127.0.0.1',
-    port: 9000,
-  }),
-});
+// const client = twilio(accountSid, authToken, {
+//   httpClient: new MyRequestClient(60000, {
+//     protocol: 'https',
+//     host: '127.0.0.1',
+//     port: 9000,
+//   }),
+// });
 
 // Example Twilio Usage (for testing purposes)
 app.get('/api/test-twilio', async (req, res) => {
