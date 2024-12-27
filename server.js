@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const timeout = require('connect-timeout');
 const cors = require('cors');
 const twilio = require('twilio');
+const MyRequestClient = require('./utils/MyRequestClient');
 
 // Routes
 const csvRoutes = require('./routes/csvRoutes');
